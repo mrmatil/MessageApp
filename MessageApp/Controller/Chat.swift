@@ -10,6 +10,10 @@ import UIKit
 
 class Chat: UIViewController {
 
+    //variables:
+    
+    var messagesArray:[messageClass] = [messageClass]()
+    
     //IBOutlets:
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var messagesTextField: UITextField!
@@ -21,6 +25,7 @@ class Chat: UIViewController {
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
         logOut()
     }
+    
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         messageEditingEnded()
         
@@ -59,10 +64,28 @@ class Chat: UIViewController {
         let tapRegistered = UITapGestureRecognizer(target: self, action: #selector(messageEditingEnded))
         messagesTableView.addGestureRecognizer(tapRegistered)
         changeCellHeight()
+        getMessage()
         // Do any additional setup after loading the view.
     }
     
 
+    func getMessage(){
+        
+        let messagesDataBase = Database.database().reference().child("messages")
+        
+        messagesDataBase.observe(.childAdded) { (temp) in
+            let temp = temp.value as! Dictionary<String,String>
+            
+            let user = temp["Sender"]!
+            let text = temp["MessageBody"]!
+            
+            let message = messageClass.init(user: user, message: text)
+            self.messagesArray.append(message)
+            self.changeCellHeight()
+            self.messagesTableView.reloadData()
+        }
+        
+    }
     
 
 }
@@ -92,14 +115,18 @@ extension Chat: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 3
+       return messagesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! MessageCell
         
-        let testArray:[String] = ["test1","test2","test3"]
-        cell.messageLabel.text=testArray[indexPath.row]
+//        let testArray:[String] = ["test1","test2","test3"]
+//        cell.messageLabel.text=testArray[indexPath.row]
+        
+        cell.messageLabel.text = messagesArray[indexPath.row].message
+        cell.nameLabel.text = messagesArray[indexPath.row].user
+        cell.avatarImage.image = UIImage(named: "man")
         return cell
     }
     

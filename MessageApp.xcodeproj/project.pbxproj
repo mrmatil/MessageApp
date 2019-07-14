@@ -19,6 +19,7 @@
 		239C8B0222DA3BE500A19A9D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 239C8B0122DA3BE500A19A9D /* GoogleService-Info.plist */; };
 		239C8B0422DA46BC00A19A9D /* alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8B0322DA46BC00A19A9D /* alerts.swift */; };
 		239C8B0622DA4D0D00A19A9D /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239C8B0522DA4D0D00A19A9D /* ResetPassword.swift */; };
+		23AEBC0722DBB85400D005A3 /* Messages .swift in Sources */ = {isa = PBXBuildFile; fileRef = 23AEBC0622DBB85400D005A3 /* Messages .swift */; };
 		6485C05D13E6BCCA8B46E0E3 /* Pods_MessageApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22BE272671781DA70782179B /* Pods_MessageApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		239C8B0122DA3BE500A19A9D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		239C8B0322DA46BC00A19A9D /* alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alerts.swift; sourceTree = "<group>"; };
 		239C8B0522DA4D0D00A19A9D /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		23AEBC0622DBB85400D005A3 /* Messages .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Messages .swift"; sourceTree = "<group>"; };
 		3B1016668E92CDC2D27A21E4 /* Pods-MessageApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessageApp/Pods-MessageApp.release.xcconfig"; sourceTree = "<group>"; };
 		6E0EF159CF8C6052A3449CC2 /* Pods-MessageApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessageApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessageApp/Pods-MessageApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				239C8B0322DA46BC00A19A9D /* alerts.swift */,
+				23AEBC0622DBB85400D005A3 /* Messages .swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				239C8B0622DA4D0D00A19A9D /* ResetPassword.swift in Sources */,
 				239C8B0422DA46BC00A19A9D /* alerts.swift in Sources */,
 				239C8AFB22DA36D900A19A9D /* Chat.swift in Sources */,
+				23AEBC0722DBB85400D005A3 /* Messages .swift in Sources */,
 				239C8AF922DA36A400A19A9D /* Registration.swift in Sources */,
 				239C8AF722DA368200A19A9D /* Login.swift in Sources */,
 			);
