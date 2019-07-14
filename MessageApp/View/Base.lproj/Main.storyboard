@@ -236,31 +236,43 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdl-af-Pcy">
                                 <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6FY-Wc-7QL">
-                                        <rect key="frame" x="5" y="5" width="329" height="40"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMH-de-QDa">
-                                        <rect key="frame" x="339" y="5" width="70" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Send">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQw-0J-MmB">
+                                        <rect key="frame" x="5" y="5" width="404" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="message" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6FY-Wc-7QL">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="BBn-8D-Nxc"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMH-de-QDa">
+                                                <rect key="frame" x="354" y="0.0" width="50" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="YZL-XB-WKp"/>
+                                                    <constraint firstAttribute="height" constant="40" id="btA-Up-uok"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Send">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="sMH-de-QDa" firstAttribute="leading" secondItem="6FY-Wc-7QL" secondAttribute="trailing" id="cUT-X8-bva"/>
+                                            <constraint firstAttribute="height" constant="40" id="f8s-cM-H3a"/>
+                                            <constraint firstItem="6FY-Wc-7QL" firstAttribute="leading" secondItem="CQw-0J-MmB" secondAttribute="leading" id="y2G-r2-wRZ"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1422823668" green="0.23006340859999999" blue="0.49848979710000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="sMH-de-QDa" firstAttribute="leading" secondItem="6FY-Wc-7QL" secondAttribute="trailing" constant="5" id="1NF-0C-LAn"/>
                                     <constraint firstAttribute="height" constant="50" id="5lu-UR-H5e"/>
-                                    <constraint firstAttribute="trailing" secondItem="sMH-de-QDa" secondAttribute="trailing" constant="5" id="DWS-PJ-q73"/>
-                                    <constraint firstItem="6FY-Wc-7QL" firstAttribute="leading" secondItem="fdl-af-Pcy" secondAttribute="leading" constant="5" id="Lff-yZ-GIa"/>
-                                    <constraint firstItem="6FY-Wc-7QL" firstAttribute="top" secondItem="fdl-af-Pcy" secondAttribute="top" constant="5" id="Qcr-x9-lcl"/>
-                                    <constraint firstAttribute="trailing" secondItem="6FY-Wc-7QL" secondAttribute="trailing" constant="80" id="aT3-m0-oIJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="sMH-de-QDa" secondAttribute="bottom" constant="5" id="dqO-Ph-9Ni"/>
-                                    <constraint firstItem="sMH-de-QDa" firstAttribute="top" secondItem="fdl-af-Pcy" secondAttribute="top" constant="5" id="rYY-cT-c6T"/>
-                                    <constraint firstAttribute="bottom" secondItem="6FY-Wc-7QL" secondAttribute="bottom" constant="5" id="ysm-Lg-e4j"/>
+                                    <constraint firstItem="CQw-0J-MmB" firstAttribute="top" secondItem="fdl-af-Pcy" secondAttribute="top" constant="5" id="M8d-kN-9hB"/>
+                                    <constraint firstItem="CQw-0J-MmB" firstAttribute="leading" secondItem="fdl-af-Pcy" secondAttribute="leading" constant="5" id="tA6-Zs-i3h"/>
+                                    <constraint firstAttribute="trailing" secondItem="CQw-0J-MmB" secondAttribute="trailing" constant="5" id="x8m-kV-XcA"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rwl-Ds-WdF">
@@ -287,6 +299,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="messagesTableView" destination="rwl-Ds-WdF" id="yJq-A7-SvV"/>
+                        <outlet property="messagesTextField" destination="6FY-Wc-7QL" id="uTi-OI-nK6"/>
+                        <outlet property="textViewHeight" destination="5lu-UR-H5e" id="qZS-mo-r46"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fV7-Nb-iZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,6 +329,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="F8u-o7-Nky"/>
+        <segue reference="Nf8-6Y-RpD"/>
     </inferredMetricsTieBreakers>
 </document>
