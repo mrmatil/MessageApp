@@ -14,11 +14,37 @@ class Chat: UIViewController {
     @IBOutlet weak var messagesTableView: UITableView!
     @IBOutlet weak var messagesTextField: UITextField!
     @IBOutlet weak var textViewHeight:NSLayoutConstraint!
+    @IBOutlet weak var sendButton: UIButton!
     
     
     //IBActions
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
         logOut()
+    }
+    @IBAction func sendButtonPressed(_ sender: UIButton) {
+        messageEditingEnded()
+        
+        messagesTextField.isEnabled=false
+        sendButton.isEnabled=false
+        
+        let messagesDataBase = Database.database().reference().child("messages")
+        let mesdict = ["Sender": Auth.auth().currentUser?.email, "MessageBody" : messagesTextField.text]
+        
+        messagesDataBase.childByAutoId().setValue(mesdict) { (error, reference) in
+            if error != nil {
+                print(error!.localizedDescription)
+                Alert.init(title: "Error", message: error!.localizedDescription, in: self)
+                self.messagesTextField.isEnabled=true
+                self.sendButton.isEnabled=true
+            }
+            
+            else{
+                print("Message sent successfully")
+                self.messagesTextField.isEnabled=true
+                self.sendButton.isEnabled=true
+                self.messagesTextField.text=""
+            }
+        }
     }
     
     
@@ -30,7 +56,7 @@ class Chat: UIViewController {
         messagesTableView.dataSource=self
         messagesTextField.delegate=self
         messagesTableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "customMessageCell")
-        let tapRegistered = UITapGestureRecognizer(target: self, action: #selector(tableViewTap))
+        let tapRegistered = UITapGestureRecognizer(target: self, action: #selector(messageEditingEnded))
         messagesTableView.addGestureRecognizer(tapRegistered)
         changeCellHeight()
         // Do any additional setup after loading the view.
@@ -77,7 +103,7 @@ extension Chat: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    @objc func tableViewTap(){
+    @objc func messageEditingEnded(){
         messagesTextField.endEditing(true)
     }
     

@@ -258,6 +258,9 @@
                                                 <state key="normal" title="Send">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendButtonPressed:" destination="QI2-ur-cGz" eventType="touchUpInside" id="Zj6-sR-34B"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -302,6 +305,7 @@
                     <connections>
                         <outlet property="messagesTableView" destination="rwl-Ds-WdF" id="yJq-A7-SvV"/>
                         <outlet property="messagesTextField" destination="6FY-Wc-7QL" id="uTi-OI-nK6"/>
+                        <outlet property="sendButton" destination="sMH-de-QDa" id="FPM-B4-0LZ"/>
                         <outlet property="textViewHeight" destination="5lu-UR-H5e" id="qZS-mo-r46"/>
                     </connections>
                 </viewController>
