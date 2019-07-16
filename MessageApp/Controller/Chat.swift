@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class Chat: UIViewController {
 
@@ -65,6 +66,7 @@ class Chat: UIViewController {
         messagesTableView.addGestureRecognizer(tapRegistered)
         changeCellHeight()
         getMessage()
+        messagesTableView.separatorStyle = .none
         // Do any additional setup after loading the view.
     }
     
@@ -101,6 +103,7 @@ extension Chat{
             navigationController?.popToRootViewController(animated: true)
         } catch  {
             print(error.localizedDescription)
+            Alert.init(title: "Error", message: error.localizedDescription, in: self)
         }
     }
 }
@@ -127,6 +130,13 @@ extension Chat: UITableViewDelegate, UITableViewDataSource{
         cell.messageLabel.text = messagesArray[indexPath.row].message
         cell.nameLabel.text = messagesArray[indexPath.row].user
         cell.avatarImage.image = UIImage(named: "man")
+        
+        if cell.nameLabel.text == Auth.auth().currentUser?.email{
+            cell.avatarImage.backgroundColor = UIColor.flatBlue()
+        }
+        else{
+            cell.avatarImage.backgroundColor=UIColor.flatRed()
+        }
         return cell
     }
     
