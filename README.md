@@ -3,7 +3,7 @@ Simple Message App written in Swift
 
 ## Features 
 * Authentication for Google Firebase database using email
-* Registration, log in and reset password using email 
+* Registration, log in and reset password by email
 * Differentiate current user and other user by changing their avatar colors
 
 
